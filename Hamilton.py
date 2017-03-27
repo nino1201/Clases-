@@ -12,7 +12,7 @@ def difLogL(q):
     return -2*q
 
 def p_0():
-    return np.random.normal()
+    return np.random.normal(0,1)
 
 def Leap_frog(p,q):
     N=
@@ -42,7 +42,14 @@ def HMC(steps):
 
         E_n=H(pn,qn)
         E_o=H(p[i-1],q[i-1])
-
+        
+        a=min(1,np.exp(E_o-E_n))
+        b=np.random.random()
+        if b<a:
+            q[i]=q_n
+        else :
+            q[i]=q[i-1]
+    return q
 n=100
 q=np.zeros(n)
 p=np.zeros(n)
