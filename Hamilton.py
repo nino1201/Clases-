@@ -50,9 +50,11 @@ def HMC(steps):
         else :
             q[i]=q[i-1]
     return q
-n=100
-q=np.zeros(n)
-p=np.zeros(n)
-q[0]=np.random()
-p[0]=p_0
 
+
+n=10000
+qs=HMC(n)
+
+plt.hist(q[600:],bins=30)
+plt.savefig('Hamilton.pdf')
+plt.close()
